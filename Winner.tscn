@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bw6gman23jw63"]
+
+[ext_resource type="Script" uid="uid://cln42y8acbn00" path="res://winner.gd" id="1_atagj"]
+[ext_resource type="Texture2D" uid="uid://bgb6efo1gcs03" path="res://HackClubWinBlock.png" id="2_atagj"]
+[ext_resource type="AudioStream" uid="uid://c6bcr0gu0loe" path="res://freesound_community-success-1-6297.mp3" id="2_v1dhl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v0ao"]
+size = Vector2(266, 98)
+
+[node name="Winner" type="Area2D" unique_id=1087947197]
+script = ExtResource("1_atagj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=538537581]
+shape = SubResource("RectangleShape2D_8v0ao")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1698603227]
+scale = Vector2(0.8427673, 0.5)
+texture = ExtResource("2_atagj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=851677037]
+stream = ExtResource("2_v1dhl")
+volume_db = 24.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

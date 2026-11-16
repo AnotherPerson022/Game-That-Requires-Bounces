@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2aumkw6coho0"]
+
+[ext_resource type="Texture2D" uid="uid://cpxvq42t3vvsx" path="res://HackClubOuchBlock.png" id="1_25try"]
+[ext_resource type="Script" uid="uid://b0p77awgx13d6" path="res://death_block.gd" id="1_dxfcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v0ao"]
+size = Vector2(96.25, 90)
+
+[node name="DeathBlock" type="Area2D" unique_id=1758159551]
+script = ExtResource("1_dxfcc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=865372612]
+position = Vector2(1.0000076, 0)
+scale = Vector2(0.9326923, 0.87378633)
+texture = ExtResource("1_25try")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981602075]
+shape = SubResource("RectangleShape2D_8v0ao")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

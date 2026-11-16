@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://nyms6hfu8g5i"]
+
+[ext_resource type="Texture2D" uid="uid://b80fb5da3kgdw" path="res://icon.svg" id="1_gk6bx"]
+[ext_resource type="AudioStream" uid="uid://gwej2kayieou" path="res://humordome-boing-boing-bounce-454474 (1).mp3" id="2_lww6v"]
+
+[sub_resource type="GDScript" id="GDScript_gk6bx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8v0ao"]
+
+[node name="Ball" type="RigidBody2D" unique_id=2044155331]
+inertia = 0.42
+script = SubResource("GDScript_gk6bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2029502058]
+scale = Vector2(0.1484375, 0.15625)
+texture = ExtResource("1_gk6bx")
+
+[node name="CollisionBall2D" type="CollisionShape2D" parent="." unique_id=1024705230]
+shape = SubResource("CircleShape2D_8v0ao")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=823990266]
+stream = ExtResource("2_lww6v")
+volume_db = 5.403
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
